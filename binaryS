@@ -1,0 +1,38 @@
+package dsa;
+
+import java.util.Arrays;
+
+
+public class DSA {
+    
+    public static int binarySearch(int[] array, int key) {
+        int low = 0;
+        int high = array.length - 1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            
+            if (array[mid] == key) {
+                return mid;
+            } else if (array[mid] < key) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;  
+    }
+
+    public static void main(String[] args) {
+        int[] array1 = {5, 12, 1, 14, 6};
+        Arrays.sort(array1);  
+        
+        
+        System.out.println("Sorted array: " + Arrays.toString(array1));
+        
+        int key = 12;
+        
+        int pos = binarySearch(array1, key);
+        System.out.println("Position of key " + key + " in the array: " + pos);
+    }
+}
